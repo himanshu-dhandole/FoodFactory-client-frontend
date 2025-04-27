@@ -10,6 +10,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
 import Explore from "./Pages/Explore.jsx";
 import Contactus from "./Pages/Contactus.jsx";
+import { StoreContextProvider } from "./Components/Context/StoreContext.jsx";
+import Login from "./Components/auth/Login.jsx";
+import Signup from "./Components/auth/signup.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,10 +35,20 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contactus />,
       },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <StoreContextProvider>
+    <RouterProvider router={router} />
+  </StoreContextProvider>
 );
