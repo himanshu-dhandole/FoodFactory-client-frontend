@@ -1,44 +1,55 @@
-import React from 'react';
-import { categories } from '../assets/assets';
+import React, { useState } from "react";
+import FoodDisplay from "../Components/FoodDisplay/FoodDisplay";
 
 const Explore = () => {
+  const [category, setCategory] = useState("All");
+  const [searchText, setSearchText] = useState("");
+
   return (
-    <div className="container my-5">
-      <h2 className="text-center mb-4 fw-bold">Explore Categories</h2>
-      
-      <div className="d-flex overflow-auto pb-3">
-        {categories.map((item, index) => (
-          <div
-            key={index}
-            className="text-center mx-3 flex-shrink-0"
-            style={{ width: '140px', cursor: 'pointer' }}
-          >
-            <div
-              className="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2 shadow-sm"
-              style={{
-                width: '120px',
-                height: '120px',
-                transition: 'transform 0.3s',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.05)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)';
-              }}
-            >
-              <img
-                src={item.icon}
-                alt={item.category}
-                className="img-fluid p-2"
-                style={{ width: '80%', height: '80%', objectFit: 'contain' }}
-              />
-            </div>
-            <h6 className="text-capitalize">{item.category}</h6>
+    <>
+      <br />
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <form onSubmit={(e)=> e.preventDefault()}>
+              <div className="input-group mb-3">
+                <select
+                  className="form-select mt-2"
+                  style={{ maxWidth: "150px" }}
+                  onChange={(e)=> setCategory(e.target.value)}
+                  value={category}
+                >
+                  <option value="">Category</option>
+                  <option value="cold-drinks">Cold Drinks</option>
+                  <option value="pizzas">Pizzas</option>
+                  <option value="burgers">Burgers</option>
+                  <option value="biryani">Biryani</option>
+                  <option value="sandwiches">Sandwiches</option>
+                  <option value="pasta">Pasta</option>
+                  <option value="salads">Salads</option>
+                  <option value="desserts">Desserts</option>
+                  <option value="soups">Soups</option>
+                  <option value="seafood">Seafood</option>
+                </select>
+                <input
+                  type="text"
+                  className="form-control mt-2"
+                  placeholder="Search food ..."
+                  onChange={(e)=>setSearchText(e.target.value)}
+                  value={searchText}
+                />
+                <button className="btn btn-primary mt-2" type="submit">
+                  <i className="bi bi-search"></i>
+                </button>
+              </div>
+            </form>
           </div>
-        ))}
+        </div>
       </div>
-    </div>
+      <br />
+
+      <FoodDisplay category={category} searchText={searchText} />
+    </>
   );
 };
 

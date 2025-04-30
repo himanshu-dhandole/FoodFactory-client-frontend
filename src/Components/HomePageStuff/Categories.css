@@ -1,0 +1,16 @@
+/* Hide scrollbar for all browsers */
+.hide-scrollbar {
+    scrollbar-width: none; /* Firefox */
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  
+  /* Tomato border around active category wrapper */
+  div.active {
+    border: 2px solid rgb(255, 156, 139);
+    padding: 6px;
+    background-color: white;
+    transition:  border 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+  

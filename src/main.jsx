@@ -13,6 +13,7 @@ import Contactus from "./Pages/Contactus.jsx";
 import { StoreContextProvider } from "./Components/Context/StoreContext.jsx";
 import Login from "./Components/auth/Login.jsx";
 import Signup from "./Components/auth/signup.jsx";
+import FoodDetails from "./Components/FoodDisplay/FoodDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <Signup />,
       },
+      {
+        path:"/food/:id" ,
+        element:<FoodDetails/>
+      }
     ],
   },
 ]);

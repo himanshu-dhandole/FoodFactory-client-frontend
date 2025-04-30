@@ -1,9 +1,12 @@
-import React from 'react';
-import './Home.css'; // Import your custom CSS
-import Explore from './Explore';
+import React, { useState } from 'react';
+import './Home.css'; 
 import FoodDisplay from '../Components/FoodDisplay/FoodDisplay';
+import Categories from '../Components/HomePageStuff/Categories';
 
 function Home() {
+
+  const [category , setCategory] = useState("All") ;
+
   return (
     <div className="container my-5">
 
@@ -27,11 +30,12 @@ function Home() {
           />
         </div>
       </div>
-
-      <Explore/>
-      <FoodDisplay/>
+      <hr />
+      <Categories category={category} setCategory={setCategory} />
+      <hr />
+      <FoodDisplay category={category} searchText={''}/>
+      <hr />
     </div>
   );
-}
-
+} 
 export default Home;
