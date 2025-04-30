@@ -39,7 +39,7 @@
 // export default FoodDisplay;
 import React, { useContext } from "react";
 import { StoreContext } from "../Context/StoreContext";
-import FoodItem from "./FoodItem"; // Make sure this matches your component filename
+import FoodItem from "./FoodItem"; 
 import './FoodDisplay.css'
 
 function FoodDisplay({ category, searchText }) {
