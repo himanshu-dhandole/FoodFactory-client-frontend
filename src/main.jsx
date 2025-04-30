@@ -12,9 +12,9 @@ import Explore from "./Pages/Explore.jsx";
 import Contactus from "./Pages/Contactus.jsx";
 import { StoreContextProvider } from "./Components/Context/StoreContext.jsx";
 import Login from "./Components/auth/Login.jsx";
-import Signup from "./Components/auth/signup.jsx";
 import FoodDetails from "./Components/FoodDisplay/FoodDetails.jsx";
 import Cart from "./Pages/Cart.jsx";
+import Register from  "./Components/auth/Register.jsx"
 
 const router = createBrowserRouter([
   {
@@ -42,8 +42,8 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/signup",
-        element: <Signup />,
+        path: "/register",
+        element: <Register />,
       },
       {
         path: "/food/:id",

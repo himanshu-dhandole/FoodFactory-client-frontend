@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // ✅ Import Link
 
-function Signup() {
+function Register() {
   return (
     <div className="bg-light min-vh-100 d-flex align-items-center justify-content-center p-3">
       <div className="card shadow-lg w-100" style={{ maxWidth: "480px" }}>
@@ -57,4 +57,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Register;
