@@ -1,72 +1,7 @@
-// import React, { useContext } from "react";
-// import { Link } from "react-router-dom";
-// import { StoreContext } from "../Context/StoreContext";
-
-// function Fooditem({ name, description, imageurl, price, id }) {
-//   const { increaseQty, decreaseQty, quantity } = useContext(StoreContext);
-
-//   return (
-//     <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-//       <div
-//         className="card h-100 shadow-sm"
-//         style={{
-//           textDecoration: "none",
-//         }}
-//       >
-//         <Link to={`/food/${id}`}>
-//           <img
-//             src={imageurl}
-//             className="card-img-top img-fluid"
-//             alt={name || "Food item"}
-//             style={{ height: "200px", objectFit: "cover" }}
-//           />
-//         </Link>
-//         <div className="card-body d-flex flex-column">
-//           <h5 className="card-title text-truncate">{name}</h5>
-//           <p className="card-text text-muted small">{description}</p>
-//           <div className="mt-auto">
-//             <span className="badge bg-success p-2 mb-2">${price}</span>
-//             <div className="d-flex justify-content-between mt-2">
-//               <button
-//                 to={`/food/${id}`}
-//                 className="btn btn-primary btn-sm me-2"
-//               >
-//                 <i className="bi bi-cart-plus me-1"></i> Add to Cart
-//               </button>
-//               {quantity[id] > 0 ? (
-//                 <div className="d-flex align-items-center gap-2">
-//                   <button
-//                     className="btn btn-danger btn-sm"
-//                     onClick={() => decreaseQty(id)}
-//                   >
-//                     <i className="bi bi-dash-circle"></i>
-//                   </button>
-//                   <span className="fw-bold">{quantity[id]}</span>
-//                   <button
-//                     className="btn btn-success btn-sm"
-//                     onClick={() => increaseQty(id)}
-//                   >
-//                     <i className="bi bi-plus-circle"></i>
-//                   </button>
-//                 </div>
-//               ) : (
-//                 <button className="btn btn-outline-secondary btn-sm" onClick={()=> increaseQty(id)}>
-//                   <i className="bi bi-plus-circle"></i>
-//                 </button>
-//               )}
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Fooditem;
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { StoreContext } from "../Context/StoreContext";
-import "./FoodItem.css"; // Make sure to create this CSS file
+import "./FoodItem.css"; 
 
 function FoodItem({ name, description, imageurl, price, id }) {
   const { increaseQty, decreaseQty, quantity } = useContext(StoreContext);
