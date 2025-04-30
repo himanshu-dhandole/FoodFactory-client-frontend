@@ -5,6 +5,17 @@ export const StoreContext = createContext(null);
 
 export const StoreContextProvider = (props) => {
   const [foodlist, setFoodList] = useState([]);
+  const [quantity, setQuantity] = useState({});
+
+  const increaseQty = (foodId) => {
+    setQuantity((prev) => ({ ...prev, [foodId]: (prev[foodId] || 0) + 1 }));
+  };
+  const decreaseQty = (foodId) => {
+    setQuantity((prev) => ({
+      ...prev,
+      [foodId]: prev[foodId] > 0 ? prev[foodId] - 1 : 0,
+    }));
+  };
 
   const fetchFoodList = async () => {
     try {
@@ -13,6 +24,14 @@ export const StoreContextProvider = (props) => {
     } catch (err) {
       console.error("Failed to fetch food list:", err);
     }
+  };
+
+  const removeFromCart = (foodId) => {
+    setQuantity((prevQty) => {
+      const updatedQty = { ...prevQty };
+      delete updatedQty[foodId];
+      return updatedQty;
+    });
   };
 
   useEffect(() => {
@@ -24,6 +43,10 @@ export const StoreContextProvider = (props) => {
 
   const contextValue = {
     foodlist,
+    increaseQty,
+    decreaseQty,
+    quantity,
+    removeFromCart
   };
 
   return (

@@ -1,0 +1,30 @@
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 100%;
+    padding: 0;
+  }
+  
+  /* Responsive breakpoints */
+  @media (min-width: 576px) {
+    .food-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .food-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .food-grid {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+  }
+  

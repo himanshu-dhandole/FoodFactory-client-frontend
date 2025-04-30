@@ -14,6 +14,7 @@ import { StoreContextProvider } from "./Components/Context/StoreContext.jsx";
 import Login from "./Components/auth/Login.jsx";
 import Signup from "./Components/auth/signup.jsx";
 import FoodDetails from "./Components/FoodDisplay/FoodDetails.jsx";
+import Cart from "./Pages/Cart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -45,9 +46,13 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
-        path:"/food/:id" ,
-        element:<FoodDetails/>
-      }
+        path: "/food/:id",
+        element: <FoodDetails />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
     ],
   },
 ]);

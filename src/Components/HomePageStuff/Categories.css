@@ -1,16 +1,120 @@
-/* Hide scrollbar for all browsers */
+/* Categories.css */
+
+/* Hide scrollbar while maintaining functionality */
 .hide-scrollbar {
-    scrollbar-width: none; /* Firefox */
-  }
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
+
+/* Container styling */
+.categories-container {
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+/* Category item styling */
+.category-item {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.category-icon-container {
+  width: 120px;
+  height: 120px;
+  transition: all 0.25s ease-in-out;
+  border: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-icon-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.category-icon-container:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+.category-icon-container.category-active {
+  border-color: #0d6efd;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+}
+
+.category-icon {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.category-title {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #212529;
+}
+
+/* Navigation buttons */
+.categories-nav-button {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 0;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.categories-nav-button:hover {
+  background-color: #f8f9fa;
+  transform: scale(1.05);
+}
+
+.categories-nav-button:active {
+  transform: scale(0.95);
+}
+
+.categories-nav-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  display: inline-block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .category-icon-container {
+    width: 100px;
+    height: 100px;
   }
   
-  /* Tomato border around active category wrapper */
-  div.active {
-    border: 2px solid rgb(255, 156, 139);
-    padding: 6px;
-    background-color: white;
-    transition:  border 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  .categories-container {
+    padding: 0.25rem 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .category-icon-container {
+    width: 80px;
+    height: 80px;
   }
   
+  .category-title {
+    font-size: 0.8rem;
+  }
+  
+  .categories-nav-button {
+    width: 32px;
+    height: 32px;
+  }
+}

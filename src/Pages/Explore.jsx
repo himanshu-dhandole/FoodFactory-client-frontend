@@ -11,15 +11,15 @@ const Explore = () => {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-6">
-            <form onSubmit={(e)=> e.preventDefault()}>
+            <form onSubmit={(e) => e.preventDefault()}>
               <div className="input-group mb-3">
                 <select
                   className="form-select mt-2"
                   style={{ maxWidth: "150px" }}
-                  onChange={(e)=> setCategory(e.target.value)}
+                  onChange={(e) => setCategory(e.target.value)}
                   value={category}
                 >
-                  <option value="">Category</option>
+                  <option value="All">Category</option>
                   <option value="cold-drinks">Cold Drinks</option>
                   <option value="pizzas">Pizzas</option>
                   <option value="burgers">Burgers</option>
@@ -35,7 +35,7 @@ const Explore = () => {
                   type="text"
                   className="form-control mt-2"
                   placeholder="Search food ..."
-                  onChange={(e)=>setSearchText(e.target.value)}
+                  onChange={(e) => setSearchText(e.target.value)}
                   value={searchText}
                 />
                 <button className="btn btn-primary mt-2" type="submit">
@@ -47,7 +47,6 @@ const Explore = () => {
         </div>
       </div>
       <br />
-
       <FoodDisplay category={category} searchText={searchText} />
     </>
   );
