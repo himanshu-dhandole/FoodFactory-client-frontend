@@ -2,7 +2,8 @@
 import React, { useContext } from "react";
 import { StoreContext } from "../Context/StoreContext";
 import './FoodDisplay.css'
-import FoodItem from './FoodItem.jsx'
+// import FoodItem from './FoodItem.jsx'
+
 function FoodDisplay({ category, searchText }) {
   const { foodlist } = useContext(StoreContext);
   const filteredFood = foodlist.filter((food) => (
@@ -16,14 +17,15 @@ function FoodDisplay({ category, searchText }) {
         {filteredFood.length > 0 ? (
           <div className="food-grid">
             {filteredFood.map((food, index) => (
-              <FoodItem
-                key={index}
-                name={food.name}
-                description={food.description}
-                id={food.id}
-                imageurl={food.imageurl}
-                price={food.price}
-              />
+              // <FoodItem
+              //   key={index}
+              //   name={food.name}
+              //   description={food.description}
+              //   id={food.id}
+              //   imageurl={food.imageurl}
+              //   price={food.price}
+              // />
+              <h1>hi</h1>
             ))}
           </div>
         ) : (
