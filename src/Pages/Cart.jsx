@@ -1,8 +1,12 @@
 import React, { useContext } from "react";
 import "./Cart.css";
 import { StoreContext } from "../Components/Context/StoreContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Cart() {
+
+  const navigate = useNavigate() ;
+
+
   const { foodlist, increaseQty, decreaseQty, quantity ,removeFromCart} =
     useContext(StoreContext);
 
@@ -116,6 +120,7 @@ function Cart() {
                 <button
                   className="btn btn-primary w-100"
                   disabled={cartItems.length === 0}
+                  onClick={()=>navigate("/order")}
                 >
                   Proceed to Checkout
                 </button>

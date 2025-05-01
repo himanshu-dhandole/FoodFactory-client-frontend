@@ -1,5 +1,6 @@
 import logo from './logo.png';
 import cart from './cart.png';
+import profile from './profile.png'
 
 import burger from './burger.png';
 import cake from './cake.png';
@@ -7,12 +8,13 @@ import salad from './salad.png';
 import pizza from './pizza.png';
 import icecream from './icecream.png';
 import noodles from './noodles.png'
-import seafood from './seafood.png' 
-import pasta from  './pasta.png'
+import seafood from './seafood.png'
+import pasta from './pasta.png'
 
 export const assets = {
     logo,
-    cart
+    cart,
+    profile
 };
 
 export const categories = [
@@ -35,18 +37,18 @@ export const categories = [
     {
         category: 'icecream',
         icon: icecream
-    } ,
+    },
     {
         category: 'pasta',
         icon: pasta
-    } ,
+    },
     {
         category: 'noodles',
         icon: noodles
-    } ,
+    },
     {
         category: 'seafood',
         icon: seafood
-    } 
+    }
 
 ];

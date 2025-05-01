@@ -1,9 +1,13 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { StoreContext } from "../Context/StoreContext";
 
 function FoodDetails() {
+
+  const {increaseQty} = useContext(StoreContext) ;
+  const navigate = useNavigate() ;
   const { id } = useParams();
   const [data, setData] = useState({});
   const [quantity, setQuantity] = useState(1);
@@ -44,6 +48,11 @@ function FoodDetails() {
   };
 
   const handleAddToCart = () => {
+
+
+    increaseQty(data.id) ;
+    navigate("/cart") ;
+
     toast.success(`Added ${quantity} ${data.name} to cart!`, {
       position: "bottom-right",
       autoClose: 3000,
@@ -211,51 +220,15 @@ function FoodDetails() {
                 </div>
               )}
 
-              {/* Dietary Information */}
-              {data.dietaryInfo && data.dietaryInfo.length > 0 && (
-                <div className="mb-4">
-                  <h5 className="fw-bold mb-2">Dietary Information</h5>
-                  <div className="d-flex flex-wrap gap-2">
-                    {data.dietaryInfo.map((item, index) => (
-                      <span key={index} className="badge bg-light text-dark border p-2">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
               {/* Add to Cart */}
               <div className="mt-auto">
                 <div className="d-flex align-items-center gap-3 mb-3">
                   <div className="input-group input-group-lg" style={{ maxWidth: "150px" }}>
-                    <button 
-                      className="btn btn-outline-secondary" 
-                      type="button"
-                      onClick={decrementQuantity}
-                      aria-label="Decrease quantity"
-                    >
-                      <i className="bi bi-dash"></i>
-                    </button>
-                    <input
-                      type="number"
-                      className="form-control text-center fw-semibold"
-                      value={quantity}
-                      onChange={handleQuantityChange}
-                      min="1"
-                      aria-label="Quantity"
-                    />
-                    <button 
-                      className="btn btn-outline-secondary" 
-                      type="button"
-                      onClick={incrementQuantity}
-                      aria-label="Increase quantity"
-                    >
-                      <i className="bi bi-plus"></i>
-                    </button>
+                    
+                    
                   </div>
                   <button
-                    className="btn btn-primary btn-lg flex-grow-1"
+                    className="btn btn-primary btn-lg flex-grow-2 "
                     type="button"
                     onClick={handleAddToCart}
                   >

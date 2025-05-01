@@ -170,6 +170,7 @@
   }
   
   .navbar-login-btn {
+    all: unset;
     padding: 0.5rem 1.25rem;
     margin-right: 0.75rem;
     border: 1px solid var(--primary-color);
@@ -185,6 +186,7 @@
   }
   
   .navbar-signup-btn {
+    all: unset;
     padding: 0.5rem 1.25rem;
     background-color: var(--primary-color);
     border-radius: var(--border-radius);
@@ -348,3 +350,4 @@
       margin-right: 0.75rem;
     }
   }
+ 

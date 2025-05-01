@@ -10,6 +10,7 @@ function FoodDisplay({ category, searchText }) {
     food.name.toLowerCase().includes(searchText.toLowerCase())
   ));
 
+
   return (
     <div className="py-3">
       <div className="container">

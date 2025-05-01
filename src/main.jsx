@@ -14,7 +14,8 @@ import { StoreContextProvider } from "./Components/Context/StoreContext.jsx";
 import Login from "./Components/auth/Login.jsx";
 import FoodDetails from "./Components/FoodDisplay/FoodDetails.jsx";
 import Cart from "./Pages/Cart.jsx";
-import Register from  "./Components/auth/Register.jsx"
+import Register from "./Components/auth/Register.jsx";
+import PlaceOrder from "./Components/Order/PlaceOrder.jsx";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/order",
+        element: <PlaceOrder />,
       },
     ],
   },
