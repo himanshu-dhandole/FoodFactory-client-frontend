@@ -16,6 +16,7 @@ import FoodDetails from "./Components/FoodDisplay/FoodDetails.jsx";
 import Cart from "./Pages/Cart.jsx";
 import Register from "./Components/auth/Register.jsx";
 import PlaceOrder from "./Components/Order/PlaceOrder.jsx";
+import Myorders from "./Components/MyOrders/Myorders.jsx";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "/order",
         element: <PlaceOrder />,
+      },
+      {
+        path: "/myorders",
+        element: <Myorders />,
       },
     ],
   },
