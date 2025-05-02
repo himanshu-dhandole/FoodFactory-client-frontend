@@ -8,13 +8,12 @@ function Footer() {
         <div className="container">
           <div className="row g-4">
             <div className="col-lg-4 col-md-6">
-              <h5 className="mb-4">About Us</h5>
+              <h5 className="mb-4">About Me</h5>
               <p className="mb-4">
-                We are dedicated to providing innovative solutions that help businesses grow and succeed
-                in the digital age.
+                I am Himanshu Dhandole and I am a Full Stack Developer. I have a passion for creating beautiful and functional web applications. My goal is to provide the best user experience possible through my work.
               </p>
               <div className="social-links d-flex gap-2">
-                <a href="#" className="social-icon text-primary"><i className="bi bi-facebook fs-5"></i></a>
+                <a href="#" className="social-icon text-primary"><i className="bi bi-github fs-5"></i></a>
                 <a href="#" className="social-icon text-dark"><i className="bi bi-twitter-x fs-5"></i></a>
                 <a href="#" className="social-icon text-danger"><i className="bi bi-instagram fs-5"></i></a>
                 <a href="#" className="social-icon text-primary"><i className="bi bi-linkedin fs-5"></i></a>
@@ -48,15 +47,15 @@ function Footer() {
               <ul className="list-unstyled">
                 <li className="mb-3">
                   <i className="bi bi-geo-alt-fill me-2"></i>
-                  123 Business Street, New York, NY 10001
+                  Nagpur Maharashtra, India - 441107
                 </li>
                 <li className="mb-3">
                   <i className="bi bi-telephone-fill me-2"></i>
-                  <a href="tel:+1234567890" className="footer-link text-body text-decoration-none">+1 (234) 567-890</a>
+                  <a href="tel:+91 9284961467" className="footer-link text-body text-decoration-none">+91 9284961467</a>
                 </li>
                 <li className="mb-3">
                   <i className="bi bi-envelope-fill me-2"></i>
-                  <a href="mailto:contact@example.com" className="footer-link text-body text-decoration-none">contact@example.com</a>
+                  <a href="mailto:contact@example.com" className="footer-link text-body text-decoration-none">dhandolehimanshu@gmail.com</a>
                 </li>
               </ul>
             </div>
@@ -66,7 +65,7 @@ function Footer() {
             <div className="col-12">
               <hr className="mb-4" />
               <div className="text-center">
-                <p className="mb-0 text-muted">&copy; 2024 Your Company. All rights reserved.</p>
+                <p className="mb-0 text-muted">&copy; 2025 Team ARC. All rights reserved.</p>
               </div>
             </div>
           </div>

@@ -4,10 +4,13 @@ import { assets } from "../../assets/assets";
 import { StoreContext } from "../Context/StoreContext";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { RAZORPAY_KEY } from "../Context/constant";
 import { useNavigate } from "react-router-dom";
-// import Razorpay from "razorpay";
+
 function PlaceOrder() {
+
+  const RAZORPAY_KEY= import.meta.env.VITE_RAZORPAY_KEY ;
+  const base_url = import.meta.env.VITE_BASE_URL;
+
   const { quantity, foodlist, token , setQuantity } = useContext(StoreContext);
   const navigate = useNavigate();
   const [data, setData] = useState({
@@ -51,7 +54,7 @@ function PlaceOrder() {
 
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/orders/verify",
+        `${base_url}/api/orders/verify`,
         paymentData,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -73,7 +76,7 @@ function PlaceOrder() {
 
   const deleteOrder = async (orderId) => {
     try {
-      await axios.delete(`http://localhost:8080/api/orders/${orderId}`, {
+      await axios.delete(`${base_url}/api/orders/${orderId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
     } catch (error) {
@@ -84,7 +87,7 @@ function PlaceOrder() {
 
   const clearCart = async () => {
     try {
-      await axios.delete("http://localhost:8080/api/cart/clear", {
+      await axios.delete(`${base_url}/api/cart/clear`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setQuantity({}) ;
@@ -141,7 +144,7 @@ function PlaceOrder() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/orders/create",
+        `${base_url}/api/orders/create`,
         orderData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -278,20 +281,6 @@ function PlaceOrder() {
                         />
                       </div>
                     </div>
-
-                    {/* <div className="col-12">
-                      <label htmlFor="email" className="form-label">
-                        Email{" "}
-                        <span className="text-body-secondary">(Optional)</span>
-                      </label>
-                      <input
-                        type="email"
-                        className="form-control"
-                        id="email"
-                        placeholder="you@example.com"
-                      />
-                      
-                    </div> */}
 
                     <div className="col-12">
                       <label htmlFor="address" className="form-label">

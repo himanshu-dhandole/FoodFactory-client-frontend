@@ -13,11 +13,13 @@ function FoodDetails() {
   const [quantity, setQuantity] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [isFavorite, setIsFavorite] = useState(false);
+  const base_url = import.meta.env.VITE_BASE_URL;
+
 
   const fetchData = async (id) => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`http://localhost:8080/api/food/${id}`);
+      const response = await axios.get(`${base_url}/api/food/${id}`);
       if (response.status === 200) {
         setData(response.data);
       }

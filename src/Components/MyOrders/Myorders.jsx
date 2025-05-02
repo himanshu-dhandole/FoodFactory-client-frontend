@@ -7,10 +7,11 @@ import { assets } from "../../assets/assets";
 function Myorders() {
   const { token } = useContext(StoreContext);
   const [data, setdata] = useState([]);
+  const base_url = import.meta.env.VITE_BASE_URL;
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/api/orders", {
+      const res = await axios.get(`${base_url}/api/orders`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setdata(res.data);

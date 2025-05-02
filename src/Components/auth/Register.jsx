@@ -6,6 +6,7 @@ function Register() {
 
 
   const navigation = useNavigate() ;
+  const base_url = import.meta.env.VITE_BASE_URL;
 
   const [data, setData] = useState({
     name: "",
@@ -23,7 +24,7 @@ function Register() {
     event.preventDefault();
     try {
       
-      const response = await axios.post("http://localhost:8080/api/signup" , data)
+      const response = await axios.post(`${base_url}/api/signup` , data)
       if(response.status === 201) {
         toast.success("Registration Successful !!") ;
         navigation("/login") ;

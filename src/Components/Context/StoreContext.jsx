@@ -4,6 +4,8 @@ import { useState, useEffect, createContext } from "react";
 export const StoreContext = createContext(null);
 
 export const StoreContextProvider = (props) => {
+  const base_url = import.meta.env.VITE_BASE_URL;
+
   const [foodlist, setFoodList] = useState([]);
   const [quantity, setQuantity] = useState({});
   const [token, setToken] = useState("");
@@ -11,26 +13,27 @@ export const StoreContextProvider = (props) => {
   const increaseQty = async (foodId) => {
     setQuantity((prev) => ({ ...prev, [foodId]: (prev[foodId] || 0) + 1 }));
     await axios.post(
-      "http://localhost:8080/api/cart",
-      { foodId },
-      { headers: { Authorization: `Bearer ${token}` } }
+        `${base_url}/api/cart`,
+        { foodId },
+        { headers: { Authorization: `Bearer ${token}` } }
     );
   };
+
   const decreaseQty = async (foodId) => {
     setQuantity((prev) => ({
       ...prev,
       [foodId]: prev[foodId] > 0 ? prev[foodId] - 1 : 0,
     }));
     await axios.post(
-      "http://localhost:8080/api/cart/remove",
-      { foodId },
-      { headers: { Authorization: `Bearer ${token}` } }
+        `${base_url}/api/cart/remove`,
+        { foodId },
+        { headers: { Authorization: `Bearer ${token}` } }
     );
   };
 
   const fetchFoodList = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/food");
+      const response = await axios.get(`${base_url}/api/food`);
       setFoodList(response.data);
     } catch (err) {
       console.error("Failed to fetch food list:", err);
@@ -46,12 +49,12 @@ export const StoreContextProvider = (props) => {
   };
 
   const loadCartData = async (token) => {
-    const res = await axios.get("http://localhost:8080/api/cart", {
+    const res = await axios.get(`${base_url}/api/cart`, {
       headers: { Authorization: `Bearer ${token}` },
     });
 
-    setQuantity(res.data.items) ;
-  };  
+    setQuantity(res.data.items);
+  };
 
   useEffect(() => {
     async function loadData() {
@@ -59,7 +62,7 @@ export const StoreContextProvider = (props) => {
 
       if (localStorage.getItem("token")) {
         setToken(localStorage.getItem("token"));
-        await loadCartData(localStorage.getItem("token")) ;
+        await loadCartData(localStorage.getItem("token"));
       }
     }
     loadData();
@@ -73,12 +76,12 @@ export const StoreContextProvider = (props) => {
     removeFromCart,
     token,
     setToken,
-    setQuantity
+    setQuantity,
   };
 
   return (
-    <StoreContext.Provider value={contextValue}>
-      {props.children}
-    </StoreContext.Provider>
+      <StoreContext.Provider value={contextValue}>
+        {props.children}
+      </StoreContext.Provider>
   );
 };

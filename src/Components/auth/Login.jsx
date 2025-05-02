@@ -10,6 +10,8 @@ function Login() {
     password: "",
   });
 
+  const base_url = import.meta.env.VITE_BASE_URL;
+
   const { setToken } = useContext(StoreContext);
   const navigate = useNavigate();
 
@@ -23,7 +25,7 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/login",
+        `${base_url}/api/login`,
         data
       );
       if (response.status === 200) {

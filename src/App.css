@@ -5,12 +5,5 @@
   }
   
   .main-content {
-    padding-top: 80px; 
     flex: 1;
-  }
-  
-  @media (max-width: 768px) {
-    .main-content {
-      padding-top: 70px; 
-    }
   }
