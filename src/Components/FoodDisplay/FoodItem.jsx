@@ -25,7 +25,7 @@ function FoodItem({ name, description, imageurl, price, id }) {
             loading="lazy"
           />
         </Link>
-        <span className="food-card-price">${formattedPrice}</span>
+        <span className="food-card-price">₹{formattedPrice}</span>
       </div>
 
       <div className="food-card-content">

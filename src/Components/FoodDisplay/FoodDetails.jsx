@@ -173,7 +173,7 @@ function FoodDetails() {
                     </h6>
                   </div>
                 ) : (
-                  <h3 className="fw-bold text-primary mb-0">${data.price?.toFixed(2) || "0.00"}</h3>
+                  <h3 className="fw-bold text-primary mb-0">₹{data.price?.toFixed(2) || "0.00"}</h3>
                 )}
               </div>
 

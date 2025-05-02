@@ -8,14 +8,24 @@ export const StoreContextProvider = (props) => {
   const [quantity, setQuantity] = useState({});
   const [token, setToken] = useState("");
 
-  const increaseQty = (foodId) => {
+  const increaseQty = async (foodId) => {
     setQuantity((prev) => ({ ...prev, [foodId]: (prev[foodId] || 0) + 1 }));
+    await axios.post(
+      "http://localhost:8080/api/cart",
+      { foodId },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
   };
-  const decreaseQty = (foodId) => {
+  const decreaseQty = async (foodId) => {
     setQuantity((prev) => ({
       ...prev,
       [foodId]: prev[foodId] > 0 ? prev[foodId] - 1 : 0,
     }));
+    await axios.post(
+      "http://localhost:8080/api/cart/remove",
+      { foodId },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
   };
 
   const fetchFoodList = async () => {
@@ -35,16 +45,25 @@ export const StoreContextProvider = (props) => {
     });
   };
 
+  const loadCartData = async (token) => {
+    const res = await axios.get("http://localhost:8080/api/cart", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    setQuantity(res.data.items) ;
+  };  
+
   useEffect(() => {
     async function loadData() {
       await fetchFoodList();
-      // setFoodList(data) ;
-      // if(localStorage.getItem('token')) {
-      //   setToken(localStorage.getItem('token')) ;
-      // }
+
+      if (localStorage.getItem("token")) {
+        setToken(localStorage.getItem("token"));
+        await loadCartData(localStorage.getItem("token")) ;
+      }
     }
     loadData();
-  }, []);
+  }, [token]);
 
   const contextValue = {
     foodlist,
@@ -53,7 +72,8 @@ export const StoreContextProvider = (props) => {
     quantity,
     removeFromCart,
     token,
-    setToken
+    setToken,
+    setQuantity
   };
 
   return (

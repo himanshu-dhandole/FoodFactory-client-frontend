@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { quantity, token, setToken } = useContext(StoreContext);
+  const { quantity, token, setToken , setQuantity } = useContext(StoreContext);
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -35,6 +35,7 @@ const Navbar = () => {
     localStorage.removeItem("token");
     setToken("");
     navigate("/");
+    setQuantity({}) ;
     toast.info("Logout Successful !")
   };
 
@@ -101,7 +102,7 @@ const Navbar = () => {
           <Link to="/cart" className="navbar-cart-container">
             <div className="navbar-cart-icon">
               <img src={assets.cart} alt="Cart" className="navbar-cart-image" />
-              {cartItemCount > 0 && (
+              {cartItemCount > -1 && (
                 <span className="navbar-cart-badge">{cartItemCount}</span>
               )}
             </div>
@@ -133,8 +134,8 @@ const Navbar = () => {
               >
                 <img
                   src={assets.profile}
-                  height="28px"
-                  width="28px"
+                  height="32px"
+                  width="32px"
                   alt="profile"
                 />
               </a>

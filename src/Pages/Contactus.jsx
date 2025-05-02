@@ -1,72 +1,3 @@
-// import React from "react";
-// import "./Contactus.css"
-// const Contactus = () => {
-//   return (
-//     <div>
-//       <section className="cta-section py-5 bg-gradient">
-//         <div className="container">
-//           <div className="row align-items-center">
-//             <div className="col-lg-6 mb-4 mb-lg-0">
-//               <h2 className="display-4 font-weight-bold text-white mb-4">
-//                 Want to Contact us ?
-//               </h2>
-//               <p className="lead text-white-50 mb-4">
-//                 Join thousands of satisfied customers who have taken their
-//                 operations to the next level with our innovative solutions.
-//               </p>
-//               <div className="d-flex flex-wrap">
-//                 <button className="btn btn-light btn-lg font-weight-bold mr-5 mb-3">
-//                   Get Started
-//                 </button>
-//                 <button className="btn btn-outline-light btn-lg mb-3 ">
-//                   Learn More
-//                 </button>
-//               </div>
-//             </div>
-//             <div className="col-lg-6">
-//               <div className="card border-0 shadow-lg">
-//                 <div className="card-body p-5">
-//                   <h3 className="card-title mb-4">Fill  your details</h3>
-//                   <form>
-//                     <div className="form-group">
-//                       <input
-//                         type="text"
-//                         className="form-control form-control-lg"
-//                         placeholder="Your Name"
-//                       />
-//                     </div>
-//                     <div className="form-group">
-//                       <input
-//                         type="email"
-//                         className="form-control form-control-lg mt-2"
-//                         placeholder="Your Email"
-//                       />
-//                     </div>
-//                     <div className="form-group">
-//                       <input
-//                         type="text"
-//                         className="form-control form-control-lg mt-2"
-//                         placeholder="discription ..."
-//                       />
-//                     </div>
-//                     <button
-//                       type="submit"
-//                       className="btn btn-primary btn-lg btn-block mt-2"
-//                     >
-//                       Submit 
-//                     </button>
-//                   </form>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-//     </div>
-//   );
-// };
-
-// export default Contactus;
 import React, { useState } from "react";
 import "./Contactus.css";
 
@@ -154,7 +85,7 @@ const Contactus = () => {
   return (
     <div className="contact-page">
       {/* Hero Section with Background */}
-      <section className="contact-hero position-relative py-5 bg-dark text-white">
+      <section className="cta-section position-relative py-5 bg-dark text-white">
         <div className="contact-hero-overlay"></div>
         <div className="container position-relative">
           <div className="row justify-content-center text-center">
@@ -335,29 +266,6 @@ const Contactus = () => {
                   </form>
                 )}
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="cta-section py-5 bg-primary text-white">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-8 mb-4 mb-lg-0">
-              <h2 className="fw-bold mb-3">Ready to get started?</h2>
-              <p className="lead mb-0">
-                Join thousands of satisfied customers who have taken their
-                operations to the next level with our innovative solutions.
-              </p>
-            </div>
-            <div className="col-lg-4 text-lg-end">
-              <a href="/register" className="btn btn-light btn-lg me-2">
-                Get Started
-              </a>
-              <a href="/demo" className="btn btn-outline-light btn-lg">
-                Request Demo
-              </a>
             </div>
           </div>
         </div>
