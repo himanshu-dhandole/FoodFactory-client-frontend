@@ -10,7 +10,7 @@ function Footer() {
             <div className="col-lg-4 col-md-6">
               <h5 className="mb-4">About Me</h5>
               <p className="mb-4">
-                I am Himanshu Dhandole and I am a Full Stack Developer. I have a passion for creating beautiful and functional web applications. My goal is to provide the best user experience possible through my work.
+                I am Himanshu Dhandole. I have a passion for creating beautiful and functional web applications. My goal is to provide the best user experience possible through my work.
               </p>
               <div className="social-links d-flex gap-2">
                 <a href="#" className="social-icon text-primary"><i className="bi bi-github fs-5"></i></a>
